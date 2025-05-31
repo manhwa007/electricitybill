@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Electricity Bill Management</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --bg-light: #f2fcfe;
+            --bg-dark: #121212;
+            --text-light: #333;
+            --text-dark: #f2f2f2;
+            --primary: #003366;
+            --highlight: #ffd700;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: var(--bg-light);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        body.dark {
+            background: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        body.dark .hero {
+    background: #222;
+    color: #fff;
+}
+body.dark .hero button {
+    background: #0056b3;
+    color: white;
+}
+
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--highlight);
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff0;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .dark .theme-toggle {
+            background: #444;
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 2rem auto;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .hero button {
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            border: none;
+            background: #007BFF;
+            color: white;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,123,255,0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+
+        .hero button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0,123,255,0.9);
+        }
+
+        .marquee-container {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 0.5rem 0;
+            margin-top: -1rem;
+        }
+
+        marquee {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+      
+
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Mode</button>
+
+    <header>
+        <h1>⚡ Electricity Bill Management System</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </nav>
+    </header>
+
+    <div class="marquee-container">
+        <marquee behavior="scroll" direction="left">📢 Bill Due: 25th May | New: Admin approval for bills | PDF Invoice with QR Enabled | Support now live!</marquee>
+    </div>
+
+    <main class="hero">
+        <h2>Welcome!</h2>
+        <p>Manage your electricity bills effortlessly. View, download, and track your usage all in one place.</p>
+        <a href="login.html"><button>Login Now</button></a>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Electricity Bill Management System | All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Theme toggle logic
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        // Load theme from storage
+        window.onload = () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark');
+            }
+        }
+    </script>
+    <script>
+function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'true' : 'false');
+}
+
+// Apply on load
+window.onload = function() {
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark');
+    }
+}
+</script>
+
+</body>
+</html>
