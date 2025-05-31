@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>⚙ Settings</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #f5faff);
+            padding: 2rem;
+            color: #003366;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #007BFF;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .setting-card {
+            background: #f0f8ff;
+            padding: 1.2rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: 0.3s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .setting-card:hover {
+            background: #dceeff;
+            box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+        }
+
+        .setting-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: #0056b3;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 0 10px rgba(0,123,255,0.5);
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>⚙ Settings Panel</h2>
+
+        <div class="setting-card">
+            <h4>🌙 Theme Preference</h4>
+            <p>Dark/light mode toggle will be added here with persistent preference.</p>
+        </div>
+
+        <div class="setting-card">
+            <h4>🔔 Notifications</h4>
+            <p>Upcoming alerts and notifications for bill due date will be configured here.</p>
+        </div>
+
+        <div class="setting-card">
+            <h4>👤 Account Info</h4>
+            <p>Option to edit name, email, and view activity log will be shown.</p>
+        </div>
+
+        <div style="text-align:center;">
+            <a href="dashboard.php" class="back">⬅ Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

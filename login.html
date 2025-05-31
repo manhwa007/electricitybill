@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login - Electricity Bill System</title>
+<style>
+  :root {
+    --blue: #007bff;
+    --cyan: #17c2ff;
+    --white: #ffffff;
+    --black: #000000;
+    --dark-bg: #121212;
+    --dark-text: #eeeeee;
+  }
+  body {
+    margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    transition: background 0.3s, color 0.3s;
+  }
+  body.dark {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  .container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0,123,255,0.3);
+    border-radius: 10px;
+    background: var(--white);
+  }
+  body.dark .container {
+    background: #1e1e1e;
+    box-shadow: 0 0 15px rgba(23,194,255,0.7);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--blue);
+  }
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid var(--cyan);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: var(--blue);
+    outline: none;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    background: var(--blue);
+    border: none;
+    border-radius: 6px;
+    color: var(--white);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: var(--cyan);
+  }
+  .extra-links {
+    margin-top: 15px;
+    text-align: center;
+  }
+  .extra-links a {
+    color: var(--blue);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 600;
+  }
+  .extra-links a:hover {
+    color: var(--cyan);
+  }
+  /* Dark mode toggle button */
+  .toggle-switch {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0,123,255,0.5);
+    transition: background 0.3s;
+  }
+  .toggle-switch:hover {
+    background: var(--cyan);
+  }
+</style>
+</head>
+<body>
+  <button class="toggle-switch" id="toggleDark">Dark Mode</button>
+  <div class="container">
+    <h2>Login to Your Account</h2>
+    <form method="POST" action="login.php">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      
+      <button type="submit">Login</button>
+    </form>
+    <div class="extra-links">
+      <a href="register.html">Create New Account</a> | 
+      <a href="forgot_password.html">Forgot Password?</a>
+    </div>
+  </div>
+  <script>
+    const toggleBtn = document.getElementById('toggleDark');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      if(document.body.classList.contains('dark')) {
+        toggleBtn.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        toggleBtn.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    // Load theme from localStorage
+    if(localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+      toggleBtn.textContent = 'Light Mode';
+    }
+  </script>
+</body>
+</html>

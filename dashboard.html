@@ -1,0 +1,170 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+$username = $_SESSION['username'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #f0f8ff, #dfefff);
+            color: #333;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        .welcome {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cards {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .actions {
+            margin-top: 2rem;
+        }
+
+        .actions a {
+            display: inline-block;
+            margin: 1rem 1.5rem 0 0;
+            padding: 0.8rem 2rem;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0,123,255,0.6);
+            transition: all 0.3s;
+        }
+
+        .actions a:hover {
+            background: #0056b3;
+            box-shadow: 0 0 20px rgba(0,123,255,0.9);
+        }
+
+        footer {
+            margin-top: 4rem;
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Chart placeholder */
+        .chart-box {
+            margin-top: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            font-style: italic;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dashboard</h1>
+        <div class="nav-links">
+            <a href="#">Profile</a>
+            <a href="#">Settings</a>
+            <a href="logout.php">Logout</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="welcome">👋 Welcome, <strong><?php echo htmlspecialchars($username); ?></strong>!</div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Paid Bills</h3>
+                <p>₹4,200</p>
+            </div>
+            <div class="card">
+                <h3>Pending Bills</h3>
+                <p>₹1,500</p>
+            </div>
+            <div class="card">
+                <h3>Total Units</h3>
+                <p>650 kWh</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="#">📄 View Bills</a>
+            <a href="#">⬇️ Download PDF</a>
+            <a href="#">📝 Edit Profile</a>
+        </div>
+
+        <div class="chart-box">
+            📊 Bill Usage Graph (Coming Soon)
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Electricity Bill Management System</p>
+    </footer>
+
+</body>
+</html>
